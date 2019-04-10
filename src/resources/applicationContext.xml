@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="hai" class="beans.Hai">
+        <property name="name" value="Abdul Katheer"/>
+    </bean>
+    <!-- we are inheriting the properties of hai bean to hello bean, and overriding message property
+        This is done to reduce amount of XML code -->
+
+    <bean id="wish" class="beans.Wish" parent="hai">
+        <!-- name taken from hai -->
+        <property name="wish" value="Have a nice day!"/>
+    </bean>
+
+    <bean id="hello" class="beans.Hello" parent="wish">
+        <!-- name and wish taken from wish bean -->
+        <property name="message" value="Good Evening!"/>
+    </bean>
+
+
+
+
+
+</beans>
